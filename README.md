@@ -8,7 +8,7 @@ index.html                        the whole page
 style.css                         dark terminal theme
 script.js                         nav, scroll-spy, reveal, typing
 assets/favicon.svg                favicon
-assets/iotedge-placeholder.svg    project screenshot placeholder
+assets/iotedge-screenshot.jpg     iotEdge Parking 24 project screenshot
 ```
 
 ## Before you publish
@@ -21,7 +21,6 @@ Search `index.html` for these placeholders and replace them:
 | `href="#"` | hero socials, project buttons, contact links |
 | `you@example.com` | contact email and `mailto:` |
 | `/in/your-handle`, `@your-handle`, `/u/your-handle` | contact values |
-| `assets/iotedge-placeholder.svg` | project screenshot `src` |
 
 The `glitch` effect reads its text from the `data-text` attribute on the
 hero `<h1>`, so update that too when you change the name. If you swap in a real
