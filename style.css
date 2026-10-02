@@ -465,30 +465,65 @@ code {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: .75rem;
   max-width: 860px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.contact-list li {
+  list-style: none;
 }
 .contact-list a {
-  display: flex;
-  align-items: center;
-  gap: .75rem;
-  padding: .9rem 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  align-items: flex-start;
+  gap: .85rem;
+  padding: 1rem 1.1rem;
   background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: 8px;
   transition: border-color .2s, transform .2s var(--ease), background .2s;
+  text-decoration: none;
+  min-height: 6.1rem; /* uniform card height: icon + label row + 2-line value row + padding */
 }
 .contact-list a:hover {
   border-color: var(--green-2);
   background: var(--bg-3);
   transform: translateY(-2px);
 }
+.contact-list a .icon {
+  grid-column: 1;
+  grid-row: 1;
+}
+.contact-list a .contact-list__label {
+  grid-column: 2;
+  grid-row: 1;
+}
+.contact-list a .contact-list__value {
+  grid-column: 1 / span 2;
+  grid-row: 2;
+  align-self: center;      /* vertically center value inside its row */
+  min-height: 2.4rem;      /* two value lines — keeps all cards the same height */
+  font-size: .85rem;
+  color: var(--fg);
+  line-height: 1.4;
+  white-space: normal;
+  overflow-wrap: break-word; /* break long tokens (emails, UUIDs) at word boundaries */
+  word-break: break-word;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* clamp to 2 lines so cards stay uniform height */
+  line-clamp: 2;
+  text-overflow: ellipsis; /* truncate + ellipsis when text is too long */
+}
 .contact-list__label {
   font-size: .7rem;
   text-transform: uppercase;
   letter-spacing: .1em;
   color: var(--fg-faint);
-  display: block;
+  line-height: 1.1;
 }
-.contact-list__value { font-size: .85rem; color: var(--fg); }
 
 .terminal-prompt {
   margin-top: 2.5rem;
